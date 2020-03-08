@@ -1,0 +1,29 @@
+Od: <input (dateChange)="getUserList()" [(ngModel)]="this.formDateFrom" [matDatepicker]="dateFrom">
+<mat-datepicker-toggle [for]="dateFrom"></mat-datepicker-toggle>
+<mat-datepicker #dateFrom></mat-datepicker>
+
+Do: <input (dateChange)="getUserList()"  [(ngModel)]="this.formDateTo" [matDatepicker]="dateTo">
+<mat-datepicker-toggle [for]="dateTo"></mat-datepicker-toggle>
+<mat-datepicker #dateTo></mat-datepicker>
+
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Imię i nazwisko</th>
+    <th scope="col" class="text-center">Ilość commitów</th>
+    <th scope="col" class="text-center">Dodane linie</th>
+    <th scope="col" class="text-center">Usunięte linie</th>
+    <th scope="col" class="text-center">Suma</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of userList | async">
+    <th>{{ user.username }}</th>
+    <td class="text-center">{{ user.commitsCount }}</td>
+    <td class="text-center"><span class="badge badge-success">{{ user.stats.additions }}</span></td>
+    <td class="text-center"><span class="badge badge-danger">{{ user.stats.deletions }}</span></td>
+    <td class="text-center"><span class="badge badge-primary">{{ user.stats.total }}</span></td>
+  </tr>
+  </tbody>
+</table>

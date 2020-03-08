@@ -1,0 +1,12 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Projekt</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let project of projectList | async">
+    <td><a [routerLink]="['/project/', project.id]">{{ project.name }}</a></td>
+  </tr>
+  </tbody>
+</table>

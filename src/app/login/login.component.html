@@ -1,0 +1,7 @@
+<form (ngSubmit)="addKey()" #heroForm="ngForm">
+  <div class="form-group">
+    <label for="personal-key">Klucz z gitlaba</label>
+    <input type="text" class="form-control" id="personal-key" name="key" [(ngModel)]="key">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
